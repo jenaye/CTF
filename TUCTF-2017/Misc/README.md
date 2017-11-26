@@ -1,5 +1,7 @@
 # Gr8 Pictures 
 
+![gr8](https://github.com/jenaye/CTF/TUCTF-2017/Misc/img/chall.png)
+
 1. the challenge is to find the encrypted data inside a PNG picture
 
 Challenge come with 2 things, a picture and sha1.
