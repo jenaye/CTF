@@ -4,14 +4,16 @@
 
 1. the challenge is to find the encrypted data inside a PNG picture
 
-Challenge come with 2 things, a picture and sha1.
+Challenge come with 2 things, a picture containing the flag and its sha1.
 
-you should download picture and write the following content in file, here called "TheSha1"
+you should download picture in some folder. Next, if you send some random string to the NC server, you'll notice it sends back a very large base64 data. This is the same picture as flag.PNG but with your random string encrypted and hidden in it.
 
-let's try it
+let's save the base64 data to a file :
 
 ```
-nc gr8pics.tuctf.com 4444 < TheSha1 > test.b64 
+touch randomstring.txt
+nano randomstring.txt # just add some random string inside the file
+nc gr8pics.tuctf.com 4444 < somestring.txt > test.b64 
 ```
 
 with this command, we save the content of response server to test.b64
@@ -23,13 +25,18 @@ after that let's decode :
 cat test.b64 | base64 --decode > picture.png
 ```
 
-we need to count all of the difference between the flag.png and picture.png, here its  50 octets
-let's created a file with 50 octets too, and watch, what happen
+we need to count all of the difference between the flag.png and picture.png, here its 50 bytes
+
+```
+hexdump -C picture.png > picture_hex.txt # this command dump hex to a txt file, then it's easier to compare both using the app meld
+```
+
+let's create a file with 50 bytes too, and watch, what happens
 
 ![gr8](https://jenaye.fr/CTF/TUCTF/Misc/diff.png)
 
 ```
-echo "AZERTYUIOPQSDFGHJKLMWXCVBNAZERTYUIOPQSDFGHJKLMWXCV" >> MyTest
+echo "AZERTYUIOPQSDFGHJKLMWXCVBNAZERTYUIOPQSDFGHJKLMWXCV" >> 50bytes.txt
 ```
 
 lets convert the string to ASCII with online website 
@@ -45,14 +52,14 @@ Reponse of server
 ```
 08 29 2B 26 0B 21 65 3B 10 23 24 30 2C 19 07 17 29 7B 7C 21 08 3E 36 38 21 3A 28 35 2B 6D 1D 34 0A 3A 3A 33 39 0C 25 19 76 7B 79 7C 13 25 36 20 73 24
 ```
+
 lets use : http://xor.pw/ end enter the first and second string
 XOR : 
 ```
 49736e745f7830725f737563685f405f6330306c5f66756e6374696f6e3f496d5f737563685f615f313333375f6861783072
 ```
 
-this is the encryption key ( Isnt_x0rsuch@_c00l_function?Im_such_a_1337_hax0r ), so just we just need to decode it to flag
-
+So just we just need to use it as a XOR with the same 50 Bytes from flag.png
 
 ```
 // Flag 
