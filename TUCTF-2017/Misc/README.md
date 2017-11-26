@@ -1,6 +1,6 @@
 # Gr8 Pictures 
 
-![gr8](https://github.com/jenaye/CTF/TUCTF-2017/Misc/img/chall.png)
+![gr8](https://jenaye.fr/CTF/TUCTF/Misc/chall.png)
 
 1. the challenge is to find the encrypted data inside a PNG picture
 
@@ -25,6 +25,8 @@ cat test.b64 | base64 --decode > picture.png
 
 we need to count all of the difference between the flag.png and picture.png, here its  50 octets
 let's created a file with 50 octets too, and watch, what happen
+
+![gr8](https://jenaye.fr/CTF/TUCTF/Misc/diff.png)
 
 ```
 echo "AZERTYUIOPQSDFGHJKLMWXCVBNAZERTYUIOPQSDFGHJKLMWXCV" >> MyTest
