@@ -1,8 +1,3 @@
-# High Source 
-
-
-# Cookie Duty
-
 
 # Git Gud 
 
@@ -19,10 +14,7 @@ Finalement i opened PhpStorm and watched all commit, i found one called " remove
 ![git2](https://jenaye.fr/CTF/TUCTF/Web/git.png)
 
 
-
-
 # Cookie Harrelson
 
-
-# iFrame and Shame
+// Coming soon 
 
