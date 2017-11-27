@@ -44,7 +44,7 @@ lets convert the string to ASCII with online website
 you will have 
 
 ```
-// MyTest
+// 50bytes.txt 
 41 5a 45 52 54 59 55 49 4f 50 51 53 44 46 47 48 4a 4b 4c 4d 57 58 43 56 42 4e 41 5a 45 52 54 59 55 49 4f 50 51 53 44 46 47 48 4a 4b 4c 4d 57 58 43 56
 ```
 
